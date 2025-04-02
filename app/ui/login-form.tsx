@@ -1,33 +1,23 @@
 "use client";
 
 import { lusitana } from '@/app/ui/fonts';
-import {
-  AtSymbolIcon,
-  KeyIcon,
-  ExclamationCircleIcon,
-} from '@heroicons/react/24/outline';
-import { ArrowRightIcon } from '@heroicons/react/20/solid';
-import { Button } from './button';
+// import {
+//   AtSymbolIcon,
+//   KeyIcon,
+//   ExclamationCircleIcon,
+// } from '@heroicons/react/24/outline';
+// import { ArrowRightIcon } from '@heroicons/react/20/solid';
+// import { Button } from './button';
 import { useActionState } from 'react';
 import { authenticate, signInWithGoogle } from '@/app/lib/actions';
-import { useSearchParams } from 'next/navigation';
+// import { useSearchParams } from 'next/navigation';
 
 export default function LoginForm() {
   const searchParams = useSearchParams();
-  const callbackUrl = searchParams.get('callbackUrl') || '/dashboard';
+  // const callbackUrl = searchParams.get('callbackUrl') || '/dashboard';
   const [errorMessage, formAction, isPending] = useActionState(authenticate, undefined as string | undefined);
 
-  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    const formData = new FormData(event.currentTarget);
-    console.log("Form submission - email:", formData.get("email"));
-    console.log("Form submission - password:", formData.get("password"));
-    console.log("Form submission - redirectTo:", formData.get("redirectTo"));
 
-    // Then submit using the action
-    const result = await formAction(formData);
-    console.log("Form submission result:", result);
-  };
 
   return (
     <section className='flex flex-col items-center justify-center w-full max-w-sm mx-auto p-4 bg-white rounded-lg shadow-md'>
